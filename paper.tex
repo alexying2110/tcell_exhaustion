@@ -1,0 +1,474 @@
+%% bare_jrnl.tex
+%% V1.4b
+%% 2015/08/26
+%% by Michael Shell
+%% see http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.8b or later) with an IEEE
+%% journal paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% User assumes all risk.
+%% In no event shall the IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%*************************************************************************
+
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. The IEEE's font choices and paper sizes can   ***
+% *** trigger bugs that do not appear when using other class files.       ***                          ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+\documentclass[journal]{IEEEtran}
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[journal]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/pkg/ifpdf
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of the IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off
+% such as if a citation ever needs to be enclosed in parenthesis.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 5.0 (2009-03-20) and later if using hyperref.sty.
+% The latest version can be obtained at:
+% http://www.ctan.org/pkg/cite
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation
+% can be obtained at: 
+% http://www.ctan.org/pkg/graphicx
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found at:
+% http://www.ctan.org/pkg/epslatex
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). The IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics.
+%
+% Note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/amsmath
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as the IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/pkg/algorithms
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/pkg/algorithmicx
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/array
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\ifCLASSOPTIONcompsoc
+%  \usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+%\else
+%  \usepackage[caption=false,font=footnotesize]{subfig}
+%\fi
+% subfig.sty, written by Steven Douglas Cochran, is the modern replacement
+% for subfigure.sty, the latter of which is no longer maintained and is
+% incompatible with some LaTeX packages including fixltx2e. However,
+% subfig.sty requires and automatically loads Axel Sommerfeldt's caption.sty
+% which will override IEEEtran.cls' handling of captions and this will result
+% in non-IEEE style figure/table captions. To prevent this problem, be sure
+% and invoke subfig.sty's "caption=false" package option (available since
+% subfig.sty version 1.3, 2005/06/28) as this is will preserve IEEEtran.cls
+% handling of captions.
+% Note that the Computer Society format requires a larger sans serif font
+% than the serif footnote size font used in traditional IEEE formatting
+% and thus the need to invoke different subfig.sty package options depending
+% on whether compsoc mode has been enabled.
+%
+% The latest version and documentation of subfig.sty can be obtained at:
+% http://www.ctan.org/pkg/subfig
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure.
+% Be aware that LaTeX2e kernels dated 2015 and later have fixltx2e.sty's
+% corrections already built into the system in which case a warning will
+% be issued if an attempt is made to load fixltx2e.sty as it is no longer
+% needed.
+% The latest version and documentation can be found at:
+% http://www.ctan.org/pkg/fixltx2e
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/pkg/stfloats
+% Do not use the stfloats baselinefloat ability as the IEEE does not allow
+% \baselineskip to stretch. Authors submitting work to the IEEE should note
+% that the IEEE rarely uses double column equations and that authors should try
+% to avoid such use. Do not be tempted to use the cuted.sty or midfloat.sty
+% packages (also by Sigitas Tolusis) as the IEEE does not format its papers in
+% such ways.
+% Do not attempt to use stfloats with fixltx2e as they are incompatible.
+% Instead, use Morten Hogholm'a dblfloatfix which combines the features
+% of both fixltx2e and stfloats:
+%
+% \usepackage{dblfloatfix}
+% The latest version can be found at:
+% http://www.ctan.org/pkg/dblfloatfix
+
+
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version and documentation can be obtained at:
+% http://www.ctan.org/pkg/url
+% Basically, \url{my_url_here}.
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+%
+% paper title
+% Titles are generally capitalized except for words such as a, an, and, as,
+% at, but, by, for, in, nor, of, on, or, the, to and up, which are usually
+% not capitalized unless they are the first or last word of the title.
+% Linebreaks \\ can be used within to get better formatting as desired.
+% Do not put math or special symbols in the title.
+\title{Improving scRNA Clustering Through Autoencoders for T-Cell Exhaustion Biomarker Discovery}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+\author{Alex Ying
+\thanks{M. Shell was with the Department
+of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
+GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this % stops a space
+\thanks{J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+\thanks{Manuscript received December 24, 2021; revised December 24, 2021.}}
+
+% The paper headers
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2015}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
+
+
+% make the title area
+\maketitle
+
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+The ability to characterize T cells has important clinical implications for the treatment of Chronic Lymphocytic Leukemia (CLL). Specifically, being able to identify exhausted T cells within a patient can determine the suitability of CAR-T cell therapy. 
+In this report, we demonstrate the application of deep-learning techniques to standard bioinformatics analyses of single-cell RNA data (scRNA).
+Transcriptome data from CD4+ and CD8+ T cells from CLL patients was clustered using both the raw gene expression data and the encoded representations generated from a standard autoencoder network and a pass-through autoencoder architecure. Interestingly, this pass-through autoencoder displayed the ability to cluster cells by GZMK and GZMH expression levels, two known markers for T cell function. This marks an improvement over standard clustering methods, and demonstrates the networks ability to independently learn to cluster cells by the combination of important marker genes.
+Seven clusters were identified in the T cell populations using this novel clustering method, including likely clusters of exhausted CD4+ T cells and exhausted CD8+ T cells. 
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+IEEE, IEEEtran, journal, \LaTeX, paper, template.
+\end{IEEEkeywords}
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+Chronic Lymphocytic Leukemia (CLL) is a disease 
+Frequently, T
+
+Identifying T cell is particularly relevant in the case of CAR-T immunotherapy, where previous research has indicated that expression of key genetic markers for exhausion are correlated with lower yields of t cells and lower remission rates.
+
+T cell exhaustion is known to be marked by an up-regulation in several inhibitory genes, but 
+
+Single-cell RNA Sequencing (scRNA-seq) allows
+
+The main motivation for using an autoencoder is that scRNA data is inherently noisey, and that the set of each gene's expression level represent an observation about the cell's underlying state (e.g. an exhausted T cell). Traditional clustering methods project the vector of genes into a high dimensional space
+
+In this study, we generated two autoencoder networks and cluster each cell based on their compressed representation using UMAP. These clusters are compared to clusters generated from the whole-gene representation. Finally, we analysed of the clusters generated from the autoencoders for novel biomarkers that may be used to identify T cell exhaustion.
+
+\section{Methodology}
+PBMC scRNA data from the NCBI GEO database, series number GSE111015, was used for this study. This scRNA data was then filtered to only include CD4+ and CD8+ T cells by excluding cells that did not have positive expression levels of the CD4 and CD8A genes.
+
+\subsubsection{Initial Clustering}
+Initial clustering was performed using the scanpy library using the standard UMAP utility across the whole gene space. Clusters were identified using the Louvain algorithm, and these cluster labels were used for downstream identification.
+
+
+\subsubsection{Pure Autoencoder Clustering}
+The most variable genes (n = 4096) among the T cells were subset from the scRNA matrix and used as samples for training the autoencoder (Fig 1a). The Louvain algorithm was again used to identify clusters within the latent space, and the UMAP algorithm was also applied to the latent representation for visualization purposes.
+
+\subsubsection{Feature Pass-through Clustering}
+One aspect of scRNA clustering is that certain marker genes are known to be nearly perfectly entirely associated with some part of the underlying state. In other words, given that a cell expresses CD8A, it can be assumed that its underlying state is some type of CD8+ cell (e.g. a CD8+ memory cell). It is from this fact that we conjecture that passing some of this prior knowledge directly into the latent representation of the gene expression levels may aid with both training and result in clusters that more closely resemble the underlying distribution of cell states in the sample.
+
+Traditional classification of cells can be understood as an approximation of some ideal classifying function $S$:
+$$
+S(g) = argmax(p) 
+$$
+$$
+= argmax(w_1g + w_2 g\otimes g + w_3 g\otimes g\otimes g ... )
+$$
+
+where $g$ is the vector of gene expression levels and $p$ is the probability vector for each possible state. Note that this representation assumes some interactions between genes weighing into the probability, but the exact form of the ideal classifier function is both unknown and not needed for this line of reasoning.
+
+Let the approximation of this classifying function be $S'$:
+$$
+S'(g_m) = cluster(g) 
+$$
+$$
+= argmax(p - \epsilon) = argmax(w_mg) \approx argmax(w_1g)
+$$
+
+where $g_m$ is a subset of $g$ containing only the known marker genes, $\epsilon$ represents errors in the probability of each state. This approximation of the ideal classifier function is approximately the same as using only $w_1g$, with the assumption that the non-marker genes have a weights of approximately 0. 
+
+Training the autoencoder completely from scratch aims to approximate $S(g)$, where each cluster in theory represents the output of $argmax(p)$. Specifically, we argue that the encoding function $E(g) = h$ and, after sufficient training, $cluster(h) = argmax(w_hh) = argmax(p)$, where $h$ is the vector of latent states and $w_h$ are the associated weights. If instead we pass-through a vector of known marker genes into the encoding, we instead obtain $E(g) = [g_1, g_2, h_1, h_2 ...]$, and $cluster(g_m, h) = argmax(w_1g + w_hh) = argmax(p)$. It thus follows that
+$$
+p = w_1g + w_hh = w_1g + \epsilon
+$$
+$$
+\epsilon = w_hh = w_2 g\otimes g + w_3 g\otimes g\otimes g
+$$
+
+So by passing in the vector of known marker genes, and allowing the network to essentially begin with the approximate classifying function, we have the encoded representation learn only the interaction terms and the non-linear portion of the ideal classifying function. Conceptually, this architecture resembles the residual block commonly used in ResNets and other deep neural networks, and helps with training and reducing the amount of information required to be compressed in the encoded space. The final implementation of the pass-through model does not follow this exact architecture. Instead, CD4, CD8A, and LAG3 expression levels were concatenated to the vector of expression levels for the most variable genes as in the standard autoencoder training. The product of the concatentation was used as both the input and output of the network. After the input later, the CD4, CD8A, and LAG3 expression levels are cropped out, and passed through, being concatenated to the dense layer just before the encoding layer. The model was trained as in the pure autoencoder clustering, and again the Louvain algorithm and UMAP algorithms were used for clustering and visualization, respectively.
+
+
+\subsection{Analysis}
+
+
+As can be seen in the CD4 and CD8A expression levels by cluster, the pass-through architecture clusters CD4+ and CD8+ cells far more tightly than both the standard clustering and standard autoencoder clustering.
+This is despite the fact that CD4 and CD8A expression levels only appear layer before the encoding layer. Conceptually, this is probably because the transition from the concatenation layer to the encoding layer preserves the CD4 and CD8A expression levels, but also emphasizes interactions between CD4 and CD8A with other genes. This can help explain why the pass-through autoencoder also displayed the surprising ability to cluster based on GZMH and GZMK expression levels, a feature not found in the standard clustering and standard autoencoder clustering.
+
+Another interesting outcome is that despite LAG3 being among many important markers for T cell exhaustion, TIGIT and CD160 do not cluster with LAG3, remaining mostly distributed in all CD8 cells. This highlights a potential pitfall with the pass-through architecture, where over-biasing the network and adding too many or too few known markers lead to incorrect clustering. However, it's also possible that the lack of cross-correlation between LAG3 and TIGIT within the dataset signifies a heterogeneity in T cell exhaustion that requires further exploration. Notably, there was a lack of cells expressing PDCD1 in the dataset, another common marker for exhaustion, which also contributes to uncertainty with regards to the dataset.
+
+
+\section{Conclusion}
+The ability of the pass-through autoencoder architecture to learn the underlying state of CD4+ and CD8+ T cells seems extremely promising, especially given the emergent clustering along GZMK, GZMH, and GZMB expression levels.
+
+The heterogeneity in T cell exhaustion profiles also adds to the challenge of identifying exhaustion solely from scRNA data, and suggests that only looking for the canonical markers is insufficient for determining whether a T cell will exhibit exhaustion in its functionality. This makes it somewhat difficult for traditional scRNA identification techniques to
+
+
+
+One area for further improvement is further refinement of the model's hyperparameters. Changing the number of latent dimensions has a substantial effect on the quality of clusters, and determining what heuristics to use.
+
+Furthermore, validation of this methodology would require more datasets and knowledge of the underlying ground truth of whether or not the T cells exhibited exhausted behavior.
+
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+\end{thebibliography}
+
+% biography section
+% 
+% If you have an EPS/PDF photo (graphicx package needed) extra braces are
+% needed around the contents of the optional argument to biography to prevent
+% the LaTeX parser from getting confused when it sees the complicated
+% \includegraphics command within an optional argument. (You could create
+% your own custom macro containing the \includegraphics command to make things
+% simpler here.)
+%\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
+% or if you just want to reserve a space for a photo:
+
+
+
+% that's all folks
+\end{document}
